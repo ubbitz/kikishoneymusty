@@ -24,10 +24,4 @@ open index.html
 
 ## Deployment
 
-Intended for **GitHub Pages** with a custom domain at **kikishoneymusty.com**.
-
-To deploy:
-1. In this repo, go to **Settings → Pages**
-2. Under *Build and deployment*, choose **Deploy from a branch**
-3. Select `main` / `root` and save
-4. Configure the custom domain (`kikishoneymusty.com`) in the same Pages settings, and point the domain's DNS at GitHub Pages
+The live site is served by **Cloudflare Pages** at **kikishoneymusty.com**, connected to this GitHub repo. Pushing to `main` triggers an automatic deploy — no build step, the project is configured to serve `index.html` from the repo root.
