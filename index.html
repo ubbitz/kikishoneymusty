@@ -43,11 +43,9 @@
 
   /* ---------- decorative honeycomb texture ---------- */
   .honeycomb-bg{
-    position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.5;
-    background-image:
-      radial-gradient(circle at 50% 50%, transparent 0, transparent 18px, rgba(251,209,96,.07) 18px, rgba(251,209,96,.07) 20px, transparent 20px);
-    background-size:60px 104px;
-    background-position:0 0, 30px 52px;
+    position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.6;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100' viewBox='0 0 56 100'%3E%3Cg fill='none' stroke='%23FBD160' stroke-width='1.4' stroke-opacity='0.28'%3E%3Cpath d='M28 1 L54 16 L54 46 L28 61 L2 46 L2 16 Z'/%3E%3Cpath d='M0 51 L26 66 L26 96 L0 111'/%3E%3Cpath d='M56 51 L30 66 L30 96 L56 111'/%3E%3C/g%3E%3C/svg%3E");
+    background-size:56px 100px;
   }
 
   .wrap{max-width:1120px;margin:0 auto;padding:0 24px;position:relative;z-index:1;}
@@ -114,12 +112,17 @@
     animation:floaty 6s ease-in-out infinite;
   }
   @keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
-  .blob{position:absolute;border-radius:50%;filter:blur(8px);z-index:-1;opacity:.55;}
-  .blob.b1{width:170px;height:170px;background:var(--sky);top:-10px;right:0;}
-  .blob.b2{width:200px;height:200px;background:var(--honey-bright);bottom:-30px;left:-10px;}
+  .blob{position:absolute;border-radius:50%;z-index:-1;}
+  .logo-glow{
+    position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+    width:min(440px,90vw);aspect-ratio:1;border-radius:50%;z-index:-1;
+    background:radial-gradient(circle, var(--honey-bright) 0%, rgba(255,234,119,.55) 38%, rgba(255,234,119,0) 70%);
+    filter:blur(6px);
+    animation:floaty 6s ease-in-out infinite;
+  }
 
   /* floating bees / drips */
-  .float-bee{position:absolute;opacity:.18;z-index:0;}
+  .float-bee{position:absolute;opacity:.28;z-index:0;}
   .fb1{top:8%;left:4%;width:46px;animation:floaty 7s ease-in-out infinite;}
   .fb2{bottom:14%;right:6%;width:60px;animation:floaty 8s ease-in-out infinite reverse;}
 
@@ -174,7 +177,7 @@
     list-style:none;background:var(--cream-2);border:1px solid var(--peach);
     padding:8px 15px;border-radius:50px;font-weight:600;font-size:.95rem;color:var(--ink-soft);
   }
-  .care-card.packaging p{color:var(--ink-soft);font-size:1.05rem;}
+  .care-card p{color:var(--ink-soft);font-size:1.05rem;}
   .pack-points{margin-top:18px;display:flex;flex-direction:column;gap:14px;}
   .pack-points div{display:flex;gap:13px;align-items:flex-start;font-weight:600;}
   .pack-points .dot{width:9px;height:9px;border-radius:50%;background:var(--honey);margin-top:9px;flex:none;}
@@ -199,7 +202,8 @@
   .foot-contact h4{font-family:var(--display);font-size:1.2rem;margin-bottom:18px;color:var(--honey-bright);}
   .foot-link{display:flex;align-items:center;gap:13px;margin-bottom:16px;font-weight:600;transition:color .2s;}
   .foot-link:hover{color:var(--honey);}
-  .foot-link .fic{width:42px;height:42px;border-radius:12px;background:rgba(255,234,119,.14);display:grid;place-items:center;flex:none;}
+  .foot-link .fic{width:46px;height:46px;background:rgba(255,234,119,.18);display:grid;place-items:center;flex:none;
+    clip-path:polygon(25% 5%,75% 5%,100% 50%,75% 95%,25% 95%,0% 50%);}
   .foot-link svg{width:20px;height:20px;}
   .foot-bottom{border-top:1px solid rgba(255,255,255,.12);margin-top:46px;padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:.84rem;color:#9a9388;}
 
@@ -266,8 +270,24 @@
 
 <!-- ============ HERO ============ -->
 <section class="hero">
-  <svg class="float-bee fb1" viewBox="0 0 100 100"><ellipse cx="50" cy="58" rx="20" ry="26" fill="#1c1a17"/><rect x="33" y="46" width="34" height="9" rx="4.5" fill="#FBD160"/><rect x="35" y="64" width="30" height="9" rx="4.5" fill="#FBD160"/></svg>
-  <svg class="float-bee fb2" viewBox="0 0 100 100"><ellipse cx="50" cy="58" rx="20" ry="26" fill="#1c1a17"/><rect x="33" y="46" width="34" height="9" rx="4.5" fill="#FBD160"/><rect x="35" y="64" width="30" height="9" rx="4.5" fill="#FBD160"/></svg>
+  <svg class="float-bee fb1" viewBox="0 0 100 100" aria-hidden="true">
+    <ellipse cx="28" cy="48" rx="16" ry="9.5" fill="#C7DAF2" transform="rotate(-25 28 48)" stroke="#1c1a17" stroke-width="2.5"/>
+    <ellipse cx="72" cy="48" rx="16" ry="9.5" fill="#C7DAF2" transform="rotate(25 72 48)" stroke="#1c1a17" stroke-width="2.5"/>
+    <ellipse cx="50" cy="58" rx="20" ry="26" fill="#1c1a17"/>
+    <rect x="33" y="46" width="34" height="9" rx="4.5" fill="#FBD160"/>
+    <rect x="35" y="64" width="30" height="9" rx="4.5" fill="#FBD160"/>
+    <line x1="44" y1="26" x2="40" y2="14" stroke="#1c1a17" stroke-width="3" stroke-linecap="round"/>
+    <line x1="56" y1="26" x2="60" y2="14" stroke="#1c1a17" stroke-width="3" stroke-linecap="round"/>
+  </svg>
+  <svg class="float-bee fb2" viewBox="0 0 100 100" aria-hidden="true">
+    <ellipse cx="28" cy="48" rx="16" ry="9.5" fill="#C7DAF2" transform="rotate(-25 28 48)" stroke="#1c1a17" stroke-width="2.5"/>
+    <ellipse cx="72" cy="48" rx="16" ry="9.5" fill="#C7DAF2" transform="rotate(25 72 48)" stroke="#1c1a17" stroke-width="2.5"/>
+    <ellipse cx="50" cy="58" rx="20" ry="26" fill="#1c1a17"/>
+    <rect x="33" y="46" width="34" height="9" rx="4.5" fill="#FBD160"/>
+    <rect x="35" y="64" width="30" height="9" rx="4.5" fill="#FBD160"/>
+    <line x1="44" y1="26" x2="40" y2="14" stroke="#1c1a17" stroke-width="3" stroke-linecap="round"/>
+    <line x1="56" y1="26" x2="60" y2="14" stroke="#1c1a17" stroke-width="3" stroke-linecap="round"/>
+  </svg>
   <div class="wrap">
     <div class="hero-grid">
       <div class="hero-copy reveal">
@@ -280,8 +300,7 @@
         </div>
       </div>
       <div class="hero-logo-wrap reveal">
-        <span class="blob b1"></span>
-        <span class="blob b2"></span>
+        <span class="logo-glow"></span>
         <img class="logo-disc" id="logo1" alt="Kiki's Honey Musty logo — a bee badge that reads Made With Love">
       </div>
     </div>
@@ -330,20 +349,12 @@
   <div class="wrap">
     <div class="reveal" style="text-align:center;max-width:36em;margin:0 auto;">
       <div class="sec-tag" style="justify-content:center;">Made With Care</div>
-      <h2>Simple ingredients, real flavor</h2>
+      <h2>Made by hand, with love</h2>
     </div>
     <div class="care-grid">
       <div class="care-card reveal">
-        <h3><span class="ic">🍯</span> What's inside</h3>
-        <ul class="ingredients">
-          <li>Mayonnaise</li>
-          <li>Yellow mustard</li>
-          <li>Dijon mustard</li>
-          <li>Honey</li>
-          <li>Apple cider vinegar</li>
-          <li>Lemon juice</li>
-          <li>Parsley</li>
-        </ul>
+        <h3><span class="ic">🍯</span> Made fresh</h3>
+        <p>Every bottle is made by hand in small batches, with quality ingredients and the same homemade care that started it all — sweet, tangy, and full of flavor.</p>
         <div class="batch-note">Freshly made in small bottled batches — with larger made-to-order batches available too.</div>
       </div>
       <div class="care-card packaging reveal">
