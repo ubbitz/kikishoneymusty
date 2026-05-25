@@ -112,13 +112,16 @@
     animation:floaty 6s ease-in-out infinite;
   }
   @keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
-  .blob{position:absolute;border-radius:50%;z-index:-1;}
   .logo-glow{
     position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
-    width:min(440px,90vw);aspect-ratio:1;border-radius:50%;z-index:-1;
-    background:radial-gradient(circle, var(--honey-bright) 0%, rgba(255,234,119,.55) 38%, rgba(255,234,119,0) 70%);
-    filter:blur(6px);
-    animation:floaty 6s ease-in-out infinite;
+    width:120%;aspect-ratio:1;z-index:-1;pointer-events:none;opacity:.85;
+    background:radial-gradient(circle, rgba(255,234,119,.7) 0%, rgba(251,209,96,.35) 40%, rgba(251,209,96,0) 70%);
+    filter:blur(40px);
+    animation:glow-pulse 6s ease-in-out infinite;
+  }
+  @keyframes glow-pulse{
+    0%,100%{transform:translate(-50%,-50%) scale(1);opacity:.82;}
+    50%{transform:translate(-50%,-50%) scale(1.05);opacity:.88;}
   }
 
   /* floating bees / drips */
