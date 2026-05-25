@@ -72,7 +72,7 @@
   .menu-btn span{display:block;width:24px;height:2.5px;background:var(--ink);margin:5px 0;border-radius:2px;transition:.3s;}
 
   /* ---------- hero ---------- */
-  .hero{position:relative;padding:70px 0 90px;overflow:hidden;}
+  .hero{position:relative;padding:70px 0 90px;}
   .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:50px;align-items:center;}
   .hero-eyebrow{
     display:inline-flex;align-items:center;gap:9px;
@@ -114,10 +114,10 @@
   @keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
   .blob{position:absolute;border-radius:50%;z-index:-1;}
   .logo-glow{
-    position:absolute;left:50%;top:38%;transform:translate(-50%,-50%);
-    width:min(420px,82vw);aspect-ratio:1;z-index:-1;
-    background:radial-gradient(circle, rgba(255,234,119,.5) 0%, rgba(255,234,119,.32) 28%, rgba(255,234,119,.14) 52%, rgba(255,234,119,.04) 72%, rgba(255,234,119,0) 88%);
-    filter:blur(24px);
+    position:absolute;left:50%;top:48%;transform:translate(-50%,-50%);
+    width:min(500px,96vw);aspect-ratio:1;z-index:-1;
+    background:radial-gradient(circle, rgba(255,234,119,.52) 0%, rgba(255,234,119,.34) 26%, rgba(255,234,119,.16) 50%, rgba(255,234,119,.05) 72%, rgba(255,234,119,0) 88%);
+    filter:blur(26px);
     animation:floaty 6s ease-in-out infinite;
   }
 
